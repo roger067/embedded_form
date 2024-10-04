@@ -1,5 +1,4 @@
-import { render } from 'preact'
-import { App } from './app.tsx'
-import './index.css'
+import { render } from "preact";
+import PingbackForm from "./components/PingbackForm";
 
-render(<App />, document.getElementById('app')!)
+render(<PingbackForm fields={[]} />, document.getElementById("app")!);
