@@ -1,15 +1,19 @@
-import { Input, Select, Textarea } from "../ui";
+import { Input, Select, Textarea } from '../ui';
 
 interface PingbackFormProps {
   fields: [];
 }
 
-const PingbackForm = ({ fields }: PingbackFormProps) => (
-  <div>
-    <Input />
-    <Select />
-    <Textarea />
-  </div>
-);
+const PingbackForm = ({ fields }: PingbackFormProps) => {
+  console.log(fields);
+
+  return (
+    <div>
+      <Input />
+      <Select />
+      <Textarea />
+    </div>
+  );
+};
 
 export default PingbackForm;
