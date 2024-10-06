@@ -1,6 +1,6 @@
-import { Input, Select, Textarea } from '../ui';
+import { Input, Select, Textarea } from "../ui";
 
-import '../index.css';
+import "./style.css";
 
 interface PingbackFormProps {
   fields: [];
