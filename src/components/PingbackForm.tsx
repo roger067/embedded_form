@@ -1,5 +1,7 @@
 import { Input, Select, Textarea } from '../ui';
 
+import '../index.css';
+
 interface PingbackFormProps {
   fields: [];
 }
@@ -8,7 +10,7 @@ const PingbackForm = ({ fields }: PingbackFormProps) => {
   console.log(fields);
 
   return (
-    <div>
+    <div className="flex flex-col gap-2">
       <Input />
       <Select />
       <Textarea />

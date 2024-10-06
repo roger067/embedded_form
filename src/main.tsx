@@ -1,4 +1,4 @@
-import { render } from "preact";
-import PingbackForm from "./components/PingbackForm";
+import { render } from 'preact';
+import PingbackForm from './components/PingbackForm';
 
-render(<PingbackForm fields={[]} />, document.getElementById("app")!);
+render(<PingbackForm fields={[]} />, document.getElementById('app')!);
