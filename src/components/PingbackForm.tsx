@@ -1,4 +1,4 @@
-import { Input, Select, Textarea } from "../ui";
+import { Button, Input, Select, Textarea } from "../ui";
 
 import "./style.css";
 
@@ -18,23 +18,26 @@ interface PingbackFormProps {
 
 const PingbackForm = ({ fields }: PingbackFormProps) => {
   return (
-    <div className="form-group">
-      {fields.map((field) => {
-        if (field.type === "text") return <Input label={field.label} />;
-        if (field.type === "select")
-          return (
-            <Select
-              label={field.label}
-              options={field.options || []}
-              onChangeValue={() => {}}
-              placeholder={field.placeholder}
-              value=""
-            />
-          );
+    <form>
+      <div className="form-group">
+        {fields.map((field) => {
+          if (field.type === "text") return <Input label={field.label} />;
+          if (field.type === "select")
+            return (
+              <Select
+                label={field.label}
+                options={field.options || []}
+                onChangeValue={() => {}}
+                placeholder={field.placeholder}
+                value=""
+              />
+            );
 
-        return <Textarea label={field.label} />;
-      })}
-    </div>
+          return <Textarea label={field.label} />;
+        })}
+      </div>
+      <Button>Submit</Button>
+    </form>
   );
 };
 

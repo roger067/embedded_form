@@ -5,6 +5,12 @@
   font-family: "Roboto", sans-serif;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 label {
   color: #71717a;
   font-size: 0.75rem;
