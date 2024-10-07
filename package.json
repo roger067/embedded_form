@@ -1,10 +1,17 @@
 {
   "name": "pingback-form",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
+  "main": "dist/pingback-form.js",
+  "module": "dist/pingback-form.js",
+  "exports": {
+    "import": "./dist/pingback-form.js",
+    "require": "./dist/pingback-form.js"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "prepare": "pnpm run build",
     "preview": "vite preview"
   },
   "dependencies": {
