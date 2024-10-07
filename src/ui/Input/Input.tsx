@@ -1,15 +1,21 @@
+import { forwardRef } from "preact/compat";
 import { InputHTMLAttributes } from "preact/compat";
 import "./style.css";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "max" | "min"> {
   label?: string;
+  max?: string | number;
+  min?: string | number;
 }
 
-const Input = ({ label, ...inputProps }: InputProps) => (
-  <div className="form-item">
-    {label && <label>{label}</label>}
-    <input {...inputProps} />
-  </div>
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ label, ...inputProps }, ref) => (
+    <div className="form-item">
+      {label && <label>{label}</label>}
+      <input ref={ref} {...inputProps} />
+    </div>
+  )
 );
 
 export default Input;

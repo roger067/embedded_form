@@ -21,6 +21,8 @@ const Select = ({
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+  const displayPlaceholder = placeholder || "Select an item";
+
   const handleClickOutside = (event: MouseEvent) => {
     if (
       dropdownRef.current &&
@@ -37,6 +39,11 @@ const Select = ({
     };
   }, []);
 
+  const handleChangeValue = (value: string) => {
+    onChangeValue(value);
+    setIsDropdownOpen(false);
+  };
+
   return (
     <div className="form-item">
       {label && <label>{label}</label>}
@@ -45,7 +52,9 @@ const Select = ({
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           type="button"
         >
-          <span>{placeholder || "Select an item"}</span>
+          <span className={value ? "highlight" : ""}>
+            {value ?? displayPlaceholder}
+          </span>
           <ChevronDown />
         </button>
         <ul
@@ -56,7 +65,7 @@ const Select = ({
           {options.map((option) => (
             <li
               key={option}
-              onClick={() => onChangeValue(option)}
+              onClick={() => handleChangeValue(option)}
               className={`item ${value === option ? "item-selected" : ""}`}
             >
               {option}

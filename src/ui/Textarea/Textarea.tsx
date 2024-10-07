@@ -1,3 +1,4 @@
+import { forwardRef } from "preact/compat";
 import "./style.css";
 
 interface TextareaProps
@@ -5,11 +6,13 @@ interface TextareaProps
   label?: string;
 }
 
-const Textarea: React.FC<TextareaProps> = ({ label, ...textareaProps }) => (
-  <div className="form-item">
-    {label && <label>{label}</label>}
-    <textarea {...textareaProps} />
-  </div>
+const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
+  ({ label, ...textareaProps }, ref) => (
+    <div className="form-item">
+      {label && <label>{label}</label>}
+      <textarea ref={ref} {...textareaProps} />
+    </div>
+  )
 );
 
 export default Textarea;
