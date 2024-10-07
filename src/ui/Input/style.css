@@ -17,9 +17,3 @@ input:is(:active, :focus) {
 input:hover {
   border: 1px solid #a1a1aa;
 }
-
-.form-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}

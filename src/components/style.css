@@ -12,6 +12,12 @@ label {
   font-weight: 600;
 }
 
+.form-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;

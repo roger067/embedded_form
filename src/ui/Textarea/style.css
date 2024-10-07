@@ -1,0 +1,20 @@
+textarea {
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  height: 2.5rem;
+  width: 100%;
+  border: 1px solid #d4d4d8;
+  outline: 2px solid transparent;
+  min-height: 100px;
+  outline-offset: 2px;
+  transition: all 200ms ease-in-out;
+}
+
+textarea:is(:active, :focus) {
+  border: 1px solid #9061f9;
+  box-shadow: 0px 0px 0px 3px rgba(144, 97, 249, 0.12);
+}
+
+textarea:hover {
+  border: 1px solid #a1a1aa;
+}
