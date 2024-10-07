@@ -3,6 +3,7 @@ textarea {
   padding: 0.5rem 0.75rem;
   height: 2.5rem;
   width: 100%;
+  color: #52525b;
   border: 1px solid #d4d4d8;
   outline: 2px solid transparent;
   min-height: 100px;

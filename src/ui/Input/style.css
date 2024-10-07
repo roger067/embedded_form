@@ -4,6 +4,7 @@ input {
   height: 2.5rem;
   width: 100%;
   border: 1px solid #d4d4d8;
+  color: #52525b;
   outline: 2px solid transparent;
   outline-offset: 2px;
   transition: all 200ms ease-in-out;
