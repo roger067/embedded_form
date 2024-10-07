@@ -53,7 +53,7 @@ const Select = ({
           type="button"
         >
           <span className={value ? "highlight" : ""}>
-            {value ?? displayPlaceholder}
+            {value || displayPlaceholder}
           </span>
           <ChevronDown />
         </button>

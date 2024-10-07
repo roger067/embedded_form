@@ -55,7 +55,7 @@ const PingbackForm = ({ fields }: PingbackFormProps) => {
           return (
             <Textarea
               label={field.label}
-              {...(register(field.name), { required: field.required })}
+              {...register(field.name, { required: true })}
             />
           );
         })}
