@@ -38,7 +38,7 @@ const PingbackForm = ({ fields }: PingbackFormProps) => {
   } = useForm();
   const registerWithMask = useHookFormMask(register);
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => alert(JSON.stringify(data));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
