@@ -49,6 +49,7 @@ const PingbackForm = ({ fields }: PingbackFormProps) => {
                 onChangeValue={(value) => setValue(field.name, value)}
                 placeholder={field.placeholder}
                 value={watch(field.name) || ""}
+                {...register(field.name, { required: field.required })}
               />
             );
 
