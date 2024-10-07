@@ -14,7 +14,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, error, ...inputProps }, ref) => (
     <div className="form-item">
       <div className="label-item">
-        {label && <label>{label}</label>}
+        {label && <label htmlFor={inputProps.name}>{label}</label>}
         <span className="error-message">{error}</span>
       </div>
       <input ref={ref} {...inputProps} />

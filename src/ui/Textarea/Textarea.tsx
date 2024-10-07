@@ -11,7 +11,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ label, error, ...textareaProps }, ref) => (
     <div className="form-item">
       <div className="label-item">
-        {label && <label>{label}</label>}
+        {label && <label htmlFor={textareaProps.name}>{label}</label>}
         <span className="error-message">{error}</span>
       </div>
       <textarea ref={ref} {...textareaProps} />

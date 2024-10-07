@@ -1,7 +1,6 @@
 {
-  "name": "embedded_form",
-  "private": true,
-  "version": "0.0.0",
+  "name": "pingback-form",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
