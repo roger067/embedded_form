@@ -5,14 +5,18 @@ import "./style.css";
 interface InputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "max" | "min"> {
   label?: string;
+  error?: string;
   max?: string | number;
   min?: string | number;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, ...inputProps }, ref) => (
+  ({ label, error, ...inputProps }, ref) => (
     <div className="form-item">
-      {label && <label>{label}</label>}
+      <div className="label-item">
+        {label && <label>{label}</label>}
+        <span className="error-message">{error}</span>
+      </div>
       <input ref={ref} {...inputProps} />
     </div>
   )

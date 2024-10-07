@@ -23,21 +23,34 @@ interface PingbackFormProps {
 }
 
 const PingbackForm = ({ fields }: PingbackFormProps) => {
-  const { register, handleSubmit, watch, setValue } = useForm();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    setValue,
+    formState: { errors },
+  } = useForm();
   const registerWithMask = useHookFormMask(register);
 
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+
+  console.log(errors);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="form-group">
         {fields.map((field) => {
+          const requiredMessage = field.required
+            ? "This field is required"
+            : "";
+
           if (field.type === "text")
             return (
               <Input
                 label={field.label}
+                error={errors[field.name]?.message as string}
                 {...registerWithMask(field.name, [field.mask || ""], {
-                  required: field.required,
+                  required: requiredMessage,
                 })}
               />
             );
@@ -49,14 +62,16 @@ const PingbackForm = ({ fields }: PingbackFormProps) => {
                 onChangeValue={(value) => setValue(field.name, value)}
                 placeholder={field.placeholder}
                 value={watch(field.name) || ""}
-                {...register(field.name, { required: field.required })}
+                error={errors[field.name]?.message as string}
+                {...register(field.name, { required: requiredMessage })}
               />
             );
 
           return (
             <Textarea
               label={field.label}
-              {...register(field.name, { required: true })}
+              error={errors[field.name]?.message as string}
+              {...register(field.name, { required: requiredMessage })}
             />
           );
         })}

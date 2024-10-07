@@ -5,6 +5,7 @@ import { ChevronDown } from "../../icons";
 
 interface SelectProps {
   label: string;
+  error?: string;
   onChangeValue: (value: string) => void;
   options: string[];
   value: string;
@@ -13,6 +14,7 @@ interface SelectProps {
 
 const Select = ({
   label,
+  error,
   onChangeValue,
   value,
   placeholder,
@@ -46,7 +48,10 @@ const Select = ({
 
   return (
     <div className="form-item">
-      {label && <label>{label}</label>}
+      <div className="label-item">
+        {label && <label>{label}</label>}
+        <span className="error-message">{error}</span>
+      </div>
       <div className="select-wrapper" ref={dropdownRef}>
         <button
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
