@@ -7,17 +7,13 @@ render(
       { name: "name", type: "text", label: "Full Name", required: true },
       {
         name: "email",
-        type: "text",
+        type: "email",
         label: "Email Address",
         required: true,
-        pattern: {
-          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-          message: "invalid email address",
-        },
       },
       {
         name: "phone",
-        type: "text",
+        type: "tel",
         label: "Phone Number",
         required: false,
         mask: "99 9999-9999",

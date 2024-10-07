@@ -3,6 +3,7 @@ import { Button, Input, Select, Textarea } from "../ui";
 
 import "./style.css";
 import { useHookFormMask } from "use-mask-input";
+import { patterns } from "./utils";
 
 type Inputs = {
   [key: string]: string;
@@ -10,7 +11,7 @@ type Inputs = {
 
 type Field = {
   name: string;
-  type: "text" | "select" | "textarea";
+  type: "text" | "tel" | "email" | "select" | "textarea";
   label: string;
   options?: string[];
   required?: boolean;
@@ -38,8 +39,6 @@ const PingbackForm = ({ fields }: PingbackFormProps) => {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
-  console.log(errors);
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="form-group">
@@ -48,15 +47,17 @@ const PingbackForm = ({ fields }: PingbackFormProps) => {
             ? "This field is required"
             : "";
 
-          if (field.type === "text")
+          const errorMessage = errors[field.name]?.message as string;
+
+          const pattern =
+            field.pattern || patterns[field.type as keyof typeof patterns];
+
+          if (field.type === "textarea")
             return (
-              <Input
+              <Textarea
                 label={field.label}
-                error={errors[field.name]?.message as string}
-                {...registerWithMask(field.name, [field.mask || ""], {
-                  required: requiredMessage,
-                  pattern: field.pattern,
-                })}
+                error={errorMessage}
+                {...register(field.name, { required: requiredMessage })}
               />
             );
           if (field.type === "select")
@@ -67,16 +68,19 @@ const PingbackForm = ({ fields }: PingbackFormProps) => {
                 onChangeValue={(value) => setValue(field.name, value)}
                 placeholder={field.placeholder}
                 value={watch(field.name) || ""}
-                error={errors[field.name]?.message as string}
+                error={errorMessage}
                 {...register(field.name, { required: requiredMessage })}
               />
             );
 
           return (
-            <Textarea
+            <Input
               label={field.label}
-              error={errors[field.name]?.message as string}
-              {...register(field.name, { required: requiredMessage })}
+              error={errorMessage}
+              {...registerWithMask(field.name, [field.mask || ""], {
+                required: requiredMessage,
+                pattern,
+              })}
             />
           );
         })}
