@@ -16,6 +16,10 @@ type Field = {
   required?: boolean;
   mask?: string;
   placeholder?: string;
+  pattern?: {
+    value: RegExp;
+    message: string;
+  };
 };
 
 interface PingbackFormProps {
@@ -51,6 +55,7 @@ const PingbackForm = ({ fields }: PingbackFormProps) => {
                 error={errors[field.name]?.message as string}
                 {...registerWithMask(field.name, [field.mask || ""], {
                   required: requiredMessage,
+                  pattern: field.pattern,
                 })}
               />
             );
