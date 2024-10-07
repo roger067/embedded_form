@@ -1,11 +1,12 @@
-import { defineConfig } from 'vite';
-import preact from '@preact/preset-vite';
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
+import { defineConfig } from "vite";
+import preact from "@preact/preset-vite";
+import { shadowStyle } from "vite-plugin-shadow-style";
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [preact(), cssInjectedByJsPlugin()],
+  plugins: [preact(), cssInjectedByJsPlugin(), shadowStyle()],
   build: {
-    rollupOptions: { input: { 'pingback-form': '/src/wc/pingback-form.tsx' } },
+    rollupOptions: { input: { "pingback-form": "/src/wc/pingback-form.tsx" } },
   },
 });

@@ -1,10 +1,10 @@
-import { render } from 'preact';
-import PingbackForm from '../components/PingbackForm';
+import { render } from "preact";
+import PingbackForm from "../components/PingbackForm";
 
 class PingbackWC extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: "open" });
   }
 
   connectedCallback() {
@@ -13,19 +13,22 @@ class PingbackWC extends HTMLElement {
 
   disconnectedCallback() {
     if (this.shadowRoot) {
-      this.shadowRoot.innerHTML = '';
+      this.shadowRoot.innerHTML = "";
     }
   }
 
   render() {
-    const fieldsAttr = this.getAttribute('data-fields');
+    const fieldsAttr = this.getAttribute("data-fields");
     const fields = fieldsAttr ? JSON.parse(fieldsAttr) : [];
 
-    const mountPoint = document.createElement('div');
+    const mountPoint = document.createElement("div");
+    const style = document.createElement("style");
+    style.innerHTML = SHADOW_STYLE;
+    this.shadowRoot?.appendChild(style);
     this.shadowRoot?.appendChild(mountPoint);
 
     render(<PingbackForm fields={fields} />, mountPoint);
   }
 }
 
-customElements.define('pingback-form', PingbackWC);
+customElements.define("pingback-form", PingbackWC);

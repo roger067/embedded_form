@@ -22,6 +22,9 @@ devDependencies:
   vite:
     specifier: ^5.4.1
     version: 5.4.8
+  vite-plugin-shadow-style:
+    specifier: ^1.1.1
+    version: 1.1.1
 
 packages:
 
@@ -993,6 +996,10 @@ packages:
     dependencies:
       vite: 5.4.8
     dev: false
+
+  /vite-plugin-shadow-style@1.1.1:
+    resolution: {integrity: sha512-EG26MMIgK71/EIe9UqDeqznMb3AbDIPz7G7DN+W8HEpw74+qZmGppY9hMvGG3u8Idx9U++jIZMuZox1KsN1+Ww==}
+    dev: true
 
   /vite@5.4.8:
     resolution: {integrity: sha512-FqrItQ4DT1NC4zCUqMB4c4AZORMKIa0m8/URVCZ77OZ/QSNeJ54bU1vrFADbDsuwfIPcgknRkmqakQcgnL4GiQ==}
