@@ -1,9 +1,10 @@
+import { useHookFormMask } from "use-mask-input";
 import { SubmitHandler, useForm } from "react-hook-form";
+
+import { patterns } from "./utils";
 import { Button, Input, Select, Textarea } from "../ui";
 
 import "./style.css";
-import { useHookFormMask } from "use-mask-input";
-import { patterns } from "./utils";
 
 type Inputs = {
   [key: string]: string;

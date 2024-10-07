@@ -16,7 +16,7 @@ render(
         type: "tel",
         label: "Phone Number",
         required: false,
-        mask: "99 9999-9999",
+        mask: "99 99999-9999",
       },
       {
         name: "role",
