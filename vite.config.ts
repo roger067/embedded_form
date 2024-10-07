@@ -7,6 +7,11 @@ import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 export default defineConfig({
   plugins: [preact(), cssInjectedByJsPlugin(), shadowStyle()],
   build: {
-    rollupOptions: { input: { "pingback-form": "/src/wc/pingback-form.tsx" } },
+    rollupOptions: {
+      input: { "pingback-form": "/src/wc/pingback-form.tsx" },
+      output: {
+        entryFileNames: "pingback-form.js",
+      },
+    },
   },
 });
