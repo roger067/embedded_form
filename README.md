@@ -16,6 +16,18 @@ Alternatively, you can import it directly via CDN in your HTML code:
 <script src="https://unpkg.com/pingback-form@1.1.1/dist/pingback-form.js"></script>
 ```
 
+## Developer mode
+
+To see the component working in localhost, you can use:
+
+```bash
+npm run dev
+```
+
+```html
+<script src="https://unpkg.com/pingback-form@1.1.1/dist/pingback-form.js"></script>
+```
+
 ## Example Usage
 
 Here’s an example of how to use the `pingback-form` component in your HTML application:
