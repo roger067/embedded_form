@@ -2,27 +2,10 @@ import { useHookFormMask } from "use-mask-input";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { patterns } from "./utils";
+import { Field, Inputs } from "../models/types";
 import { Button, Input, Select, Textarea } from "../ui";
 
 import "./style.css";
-
-type Inputs = {
-  [key: string]: string;
-};
-
-type Field = {
-  name: string;
-  type: "text" | "tel" | "email" | "select" | "textarea";
-  label: string;
-  options?: string[];
-  required?: boolean;
-  mask?: string;
-  placeholder?: string;
-  pattern?: {
-    value: RegExp;
-    message: string;
-  };
-};
 
 interface PingbackFormProps {
   fields: Field[];
@@ -41,7 +24,7 @@ const PingbackForm = ({ fields }: PingbackFormProps) => {
   const onSubmit: SubmitHandler<Inputs> = (data) => alert(JSON.stringify(data));
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} role="form">
       <div className="form-group">
         {fields.map((field) => {
           const requiredMessage = field.required

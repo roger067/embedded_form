@@ -63,6 +63,7 @@ const Select = ({
           <ChevronDown />
         </button>
         <ul
+          role="listbox"
           className={`dropdown dropdown-${
             isDropdownOpen ? "opened" : "closed"
           }`}
