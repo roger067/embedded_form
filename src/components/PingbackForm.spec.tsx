@@ -1,6 +1,8 @@
 import { render, screen, fireEvent } from "@testing-library/preact";
 import { mockFields } from "../mocks/data";
 
+import PingbackForm from "./PingbackForm";
+
 vi.mock("react-hook-form", () => ({
   useForm: () => ({
     register: vi.fn(),
@@ -23,8 +25,6 @@ vi.mock("use-mask-input", () => ({
 beforeAll(() => {
   vi.spyOn(window, "alert").mockImplementation(() => {});
 });
-
-import PingbackForm from "./PingbackForm";
 
 test("renders form with text, select, and textarea fields", () => {
   render(<PingbackForm fields={mockFields} />);
